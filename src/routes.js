@@ -38,7 +38,11 @@ routes.put(
   handle(controllers.AdController.update)
 )
 routes.delete('/ads/:id', handle(controllers.AdController.destroy))
-routes.put('/ads/accept/:id', handle(controllers.AdController.update))
+routes.put(
+  '/ads/accept/purchase',
+  validate(validators.AcceptPurchase),
+  handle(controllers.AdController.acceptPurchase)
+)
 
 /**
  * Purchases

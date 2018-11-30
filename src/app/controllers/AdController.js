@@ -1,4 +1,5 @@
 const Ad = require('../models/Ad')
+const Purchase = require('../models/Purchase')
 
 class AdController {
   async index (req, res) {
@@ -46,6 +47,23 @@ class AdController {
 
   async update (req, res) {
     const ad = await Ad.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
+
+    return res.json(ad)
+  }
+
+  async acceptPurchase (req, res) {
+    const { purchasedBy } = req.body
+    const purchase = await Purchase.findById(purchasedBy)
+
+    const purchaseAd = await Ad.findById(purchase.ad)
+
+    if (purchaseAd.purchasedBy) {
+      return res.status(405).json({ error: 'This ad has already been sold' })
+    }
+
+    const ad = await Ad.findByIdAndUpdate(purchase.ad, req.body, {
       new: true
     })
 
