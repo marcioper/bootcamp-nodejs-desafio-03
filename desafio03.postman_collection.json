@@ -248,17 +248,17 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"purchasedBy\": \"5c0178b1376c00290d80c582\"\n}"
+											"raw": "{\n\t\"purchasedBy\": \"5c01bb9722638c519d387b01\"\n}"
 										},
 										"url": {
-											"raw": "{{base_node}}/ads/accept/5bff4ff536bd0079ec35b699",
+											"raw": "{{base_node}}/ads/accept/purchase",
 											"host": [
 												"{{base_node}}"
 											],
 											"path": [
 												"ads",
 												"accept",
-												"5bff4ff536bd0079ec35b699"
+												"purchase"
 											]
 										}
 									},
@@ -333,7 +333,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"ad\": \"5bff4ff536bd0079ec35b699\",\n\t\"content\": \"Gostaria de comprar esse curso.\"\n}"
+											"raw": "{\n\t\"ad\": \"5bff500936bd0079ec35b69a\",\n\t\"content\": \"Gostaria de comprar esse curso 3.\"\n}"
 										},
 										"url": {
 											"raw": "{{base_node}}/purchases",
