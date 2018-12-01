@@ -57,10 +57,10 @@ class AdController {
     const { purchasedBy } = req.body
     const purchase = await Purchase.findById(purchasedBy)
 
-    const purchaseAd = await Ad.findById(purchase.ad)
+    let purchaseAd = await Ad.findById(purchase.ad)
 
     if (purchaseAd.purchasedBy) {
-      return res.status(405).json({ error: 'This ad has already been sold' })
+      return res.status(400).json({ error: 'This ad has already been sold' })
     }
 
     const ad = await Ad.findByIdAndUpdate(purchase.ad, req.body, {

@@ -9,7 +9,7 @@ class PurchaseController {
     const purchaseAd = await models.Ad.findById(ad).populate('author')
 
     if (purchaseAd.purchasedBy) {
-      return res.status(405).json({ error: 'This ad has already been sold' })
+      return res.status(400).json({ error: 'This ad has already been sold' })
     }
 
     const user = await models.User.findById(req.userId)
